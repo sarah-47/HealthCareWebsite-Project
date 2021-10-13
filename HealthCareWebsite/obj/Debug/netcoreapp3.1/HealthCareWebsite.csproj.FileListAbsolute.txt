@@ -178,3 +178,4 @@ C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netco
 C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Home\Search.cshtml.g.cs
 C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Home\UCart.cshtml.g.cs
 C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netcoreapp3.1\Razor\Views\User\Confirmed.cshtml.g.cs
+C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Home\CategoryList.cshtml.g.cs

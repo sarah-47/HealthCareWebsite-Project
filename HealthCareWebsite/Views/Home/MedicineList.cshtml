@@ -4,7 +4,11 @@
 <h1>Meds List</h1>
 <partial name="Search" />
 <div class="conatiner">
+    <div>
+        <p>@Html.ActionLink("Sort By Name", "MedicineList", new { sortField = "MName", currentSortField = ViewBag.SortField, sortDirection = ViewBag.SortDirection })</p>
+        <p>@Html.ActionLink("Sort By Category", "MedicineList", new { sortField = "CName", currentSortField = ViewBag.SortField, sortDirection = ViewBag.SortDirection })</p>
 
+    </div>
     <div class="row justify-content-around">
         @foreach (var item in Model)
         {

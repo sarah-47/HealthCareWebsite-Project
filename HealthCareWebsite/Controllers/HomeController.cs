@@ -43,9 +43,9 @@ namespace HealthCareWebsite.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult MedicineList()
+        public IActionResult MedicineList(string sortField, string currentSortField, string sortDirection)
         {
-            IEnumerable<MedicinesModel> mlist = (from m in db.Medicines
+            var mlist = (from m in db.Medicines
                                                   from c in db.Categories
                                                   where m.CategoryId == c.CId
                                                   select new MedicinesModel
@@ -60,7 +60,31 @@ namespace HealthCareWebsite.Controllers
             ).ToList();
 
 
-            return View(mlist);
+            return View(this.SortMeds(mlist, sortField, currentSortField, sortDirection));
+        }
+
+        public List<MedicinesModel> SortMeds(List<MedicinesModel>meds,string sortField,string currentSortField,string sortDirection)
+        {
+            if (sortField==null)
+            {
+                ViewBag.SortField = "MName";
+                ViewBag.SortDirection = "Asc";
+            }
+            else
+            {
+                if (currentSortField == sortField)
+                    ViewBag.SortDirection = sortDirection == "Asc" ? "Des" : "Asc";
+                else
+                    ViewBag.SortDirection = "Asc";
+                ViewBag.SortField = sortField;
+            }
+
+            var propertyInfo = typeof(MedicinesModel).GetProperty(ViewBag.SortField);
+                if (ViewBag.SortDirection == "Asc")
+                meds = meds.OrderBy(e => propertyInfo.GetValue(e, null)).ToList();
+                else
+                meds=meds.OrderByDescending(e=>propertyInfo.GetValue(e, null)).ToList();
+            return meds;
         }
 
         public ActionResult Search()
@@ -90,7 +114,30 @@ namespace HealthCareWebsite.Controllers
             ).ToList(); 
             return View("MedicineList", SearchResult);
         }
-        
+        public IActionResult CategoryList()
+        {
+            return View(db.Categories.ToList());
+        }
+
+        public IActionResult Category(int id)
+        {
+            IEnumerable<MedicinesModel> cs = (from m in db.Medicines
+                                                        from c in db.Categories
+                                                        where m.CategoryId == c.CId
+                                                        where c.CId==id
+                                                        select new MedicinesModel
+                                                        {
+                                                            MName = m.MName,
+                                                            MPrice = m.MPrice,
+                                                            MImage = m.MImage,
+                                                            IsAvailable = m.IsAvailable,
+                                                            CName = c.CName,
+                                                            MId = m.MId
+
+                                                        }).ToList();
+            return View("MedicineList",cs);
+        }
+
         [HttpPost]
         public JsonResult AddToCart(int id)
         {
