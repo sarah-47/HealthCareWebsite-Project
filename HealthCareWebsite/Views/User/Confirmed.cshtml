@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Corder>
+
+@{
+    ViewData["Title"] = "Confirmation";
+    int count = 1;
+
+}
+
+
+        <div class="conatiner">
+            <br />
+            <div class="row justify-content-around" >
+                <h2 style="color:forestgreen">Your request sent successfully </h2>
+                <hr>
+
+
+                <h3>Your Order</h3>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th> </th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">UniCost</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@(count++)</td>
+                            <td width="60"><img src="~/imgs/@item.Image" width="50" height="50" /> </td>
+                            <td>@item.Name</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.UniPrice</td>
+
+
+                        </tr>
+                        }
+                        <tr>
+                            <td></td>
+                            <td colspan="2"><h5>Total</h5></td>
+                            <td>
+                                <h5> @Model.Sum(x => x.UniPrice * x.Quantity)</h5>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Cart>
+
+
+
+@{
+    ViewData["Title"] = "Order";
+}
+@using (Html.BeginForm("ConfirmOrder", "User"))
+{
+    @if (Model != null)
+    {
+        <h1>Order</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Sub Total</th>
+                    <th></th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td width="60"><img src="~/imgs/@item.medicine.MImage" width="50" height="50" /> </td>
+                        <td>@item.medicine.MName</td>
+                        <td>@item.medicine.MPrice.ToString("#,##0.00$")</td>
+                        <td>@item.Quantity</td>
+                        <td>@(item.medicine.MPrice * item.Quantity)</td>
+                        <td><a asp-action="Remove" asp-route-id="@item.medicine.MId"><input type="button" class="btn btn-danger text-white" value="Remove"></a></td>
+
+
+
+                    </tr>
+                }
+                <tr>
+                    <td></td>
+                    <td colspan="4"><h5>Total</h5></td>
+                    <td>
+                        <h5> @Model.Sum(x => x.medicine.MPrice * x.Quantity)</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="4">
+                        <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="MedicineList">Back To The Medicines List</a>
+                    </td>
+                    <td><input type="submit" name="ConfirmOrder" value="Confirm Order" class="btn btn-success" /></td>
+                </tr>
+            </tbody>
+
+        </table>
+    }
+    else
+    {
+        <h1>The cart is empty</h1>
+        <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="MedicineList">See The Medicines List</a>
+
+    }
+}

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CategoriesModel>
+    @{
+        ViewData["Title"] = "CategoriesList";
+        int count = 1;
+    }
+
+    <h1>Categories List</h1>
+
+    <div class="conatiner">
+        <div class="row mb-1">
+            <a asp-action="AddCate"><input type="button" class="btn btn-primary text-white" value="Add New Category"></a>
+        </div>
+        <div class="row justify-content-center">
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col"> </th>
+                        <th scope="col">Name</th>
+
+                        <th> </th>
+                        <th> </th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+
+
+
+                    @foreach (var item in Model)
+                    {
+
+
+                        <tr>
+                            <td>@(count++)</td>
+                            <td>@item.CName</td>
+
+
+                            <td>
+                                <a asp-action="UpdateCate" asp-route-id="@item.CId">Edit</a>
+                            </td>
+                            <td>
+                                <a asp-action="DeleteCate" asp-route-id="@item.CId">Delete</a>
+                            </td>
+
+                        </tr>
+
+
+
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

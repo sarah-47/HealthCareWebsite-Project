@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MedicinesModel>
+
+
+@{
+    ViewData["Title"] = "Medicines List";
+    int count = 1;
+}
+
+<h1>Meds List</h1>
+<div class="conatiner ">
+        <div class="row m-1 ">
+            <a asp-action="AddMedicine"><input type="button" value="Add New Medicine" class="btn btn-primary text-white"></a>
+        </div>
+    <div class="row justify-content-center">
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th> </th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Availablity</th>
+                    <th scope="col">Category</th>
+                    <th> </th>
+                    <th> </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+                @foreach (var item in Model)
+                {
+
+
+                    <tr>
+                        <td>@(count++)</td>
+                        <th scope="row"><img src="~/imgs/@item.MImage" width="50" height="50" /></th>
+                        <td>@item.MName</td>
+                        <td> @item.MPrice.ToString("#,##0.00 $")</td>
+                        <td>
+                            @if (@item.IsAvailable)
+                            {
+                                <label>Available</label>
+                            }
+                            else
+                            {
+                                <label>Not Available</label>
+                            }
+                        </td>
+                        <td>@item.CName</td>
+                        <td>
+                            <a asp-action="UpdateMed" asp-route-id="@item.MId">Edit</a>
+                        </td>
+                        <td>
+                            <a asp-action="DeleteMed" asp-route-id="@item.MId">Delete</a>
+                        </td>
+
+                    </tr>
+
+
+
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

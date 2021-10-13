@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MedicinesModel>
+
+
+<h1>Meds List</h1>
+<partial name="Search" />
+<div class="conatiner">
+
+    <div class="row justify-content-around">
+        @foreach (var item in Model)
+        {
+            @if (@item.IsAvailable)
+            {
+                <div class="card col-lg-3">
+                    <div class="card-body">
+
+
+                        <div class="text-center ">
+                            <img src="~/imgs/@item.MImage" width="150" height="150" />
+                            <h5>@item.MName</h5>
+                            <h5>@item.CName</h5>
+                            <h5>@item.MPrice.ToString("#,##0.00 $")</h5>
+
+                            <!--<a asp-action="AddToCart">Order</a>-->
+
+                            <input type="button" name="Order" value="Order" class="btn btn-primary" onclick=AddToCart(@item.MId) />
+
+
+                        </div>
+
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<Script type="text/javascript">
+    function AddToCart(item) {
+        var formData = new FormData();
+        formData.append("id", item);
+
+        $.ajax({
+            async: true,
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            data: formData,
+            url: '/Home/AddToCart',
+
+        });
+    }
+</Script>
