@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "CategoriesList";
+}
+
+<h1>Categories List</h1>
+
+<div class="conatiner">
+  
+    <div class="row justify-content-center">
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+    
+                    <th scope="col">Name</th>
+
+            
+
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+                @foreach (var item in Model)
+                {
+
+
+                    <tr>
+                        
+                        <td><a asp-action="Category" asp-route-id="@item.CId">@item.CName</a></td>
+
+
+                       
+
+                    </tr>
+
+
+
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
