@@ -148,8 +148,6 @@ C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netco
 C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netcoreapp3.1\HealthCareWebsite.TagHelpers.output.cache
 C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netcoreapp3.1\HealthCareWebsite.RazorCoreGenerate.cache
 C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
-C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Lenovo\source\repos\HealthCareWebsite\HealthCareWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs

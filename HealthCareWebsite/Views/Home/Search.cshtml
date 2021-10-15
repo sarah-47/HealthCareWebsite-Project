@@ -1,13 +1,13 @@
 ﻿
 
-<div class="row block ">
-    <form class="form-group" method="post" asp-action="Search">
-     
+<div class="container justify-content-center">
+    <form class="input-group " method="post" asp-action="Search">
 
-        <div class="input-group">
-            @Html.TextBox("Searching")
-            <button type="submit" class="btn btn-outline-primary">search</button>
+
+        <div class="col-md-10  justify-content-center">
+            <input type="submit" value="Search" class="btn btn-outline-primary">
+            @Html.TextBox("Searching", null, new { @class = "form-group col-md-10 ", @placeHolder = "Search by Medicine Name or Category..." })
         </div>
-
+        
     </form>
 </div>

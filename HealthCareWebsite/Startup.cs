@@ -78,7 +78,7 @@ namespace HealthCareWebsite
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=MedicineList}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

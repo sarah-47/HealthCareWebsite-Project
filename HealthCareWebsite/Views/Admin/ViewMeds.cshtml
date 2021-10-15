@@ -6,7 +6,7 @@
     int count = 1;
 }
 
-<h1>Meds List</h1>
+<h1>Medicines List</h1>
 <div class="conatiner ">
         <div class="row m-1 ">
             <a asp-action="AddMedicine"><input type="button" value="Add New Medicine" class="btn btn-primary text-white"></a>
@@ -40,7 +40,7 @@
                         <td>@(count++)</td>
                         <th scope="row"><img src="~/imgs/@item.MImage" width="50" height="50" /></th>
                         <td>@item.MName</td>
-                        <td> @item.MPrice.ToString("#,##0.00 $")</td>
+                        <td> @item.MPrice.ToString("#,##0.00$")</td>
                         <td>
                             @if (@item.IsAvailable)
                             {
